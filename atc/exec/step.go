@@ -8,7 +8,7 @@ import (
 	"github.com/concourse/concourse/vars"
 	"github.com/concourse/concourse/atc"
 	"github.com/concourse/concourse/atc/db"
-	"github.com/concourse/concourse/atc/exec/artifact"
+	"github.com/concourse/concourse/atc/exec/build"
 )
 
 //go:generate counterfeiter . Step
@@ -50,7 +50,7 @@ type BuildStepDelegate interface {
 //go:generate counterfeiter . RunState
 
 type RunState interface {
-	Artifacts() *artifact.Repository
+	Artifacts() *build.Repository
 
 	Result(atc.PlanID, interface{}) bool
 	StoreResult(atc.PlanID, interface{})
