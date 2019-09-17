@@ -5,10 +5,10 @@ import (
 	"io"
 
 	"code.cloudfoundry.org/lager"
-	"github.com/concourse/concourse/vars"
 	"github.com/concourse/concourse/atc"
 	"github.com/concourse/concourse/atc/db"
 	"github.com/concourse/concourse/atc/exec/build"
+	"github.com/concourse/concourse/vars"
 )
 
 //go:generate counterfeiter . Step
@@ -50,7 +50,7 @@ type BuildStepDelegate interface {
 //go:generate counterfeiter . RunState
 
 type RunState interface {
-	Artifacts() *build.Repository
+	ArtifactRepository() *build.Repository
 
 	Result(atc.PlanID, interface{}) bool
 	StoreResult(atc.PlanID, interface{})
